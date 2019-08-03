@@ -15,7 +15,6 @@ clone_layers() {
       git clone -b warrior https://git.yoctoproject.org/git/meta-raspberrypi
       ;;
   esac
-  echo "ok"
 }
 
 
@@ -96,20 +95,16 @@ while getopts "am:" opt;  do
         exit 0
         ;;
     m)
-      echo "Args $OPTARG"
       MACHINE=$OPTARG
       SHIFTCOUNT=$(( $SHIFTCOUNT+2 ))
-      echo "machine"
       ;;
     a)
       AUTO=1
-      IMAGE_NAME="first-yocto-recipe"
+      IMAGE_NAME="first-yocto-image"
       IMAGE_TYPE="first-sdimage"
       SHIFTCOUNT=$(( $SHIFTCOUNT+1 ))
-      echo "yes!"
       ;;
     *)
-      echo "$opt"
       ;;
   esac
 done
