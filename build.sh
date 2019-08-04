@@ -23,8 +23,13 @@ source_bitbake() {
   then
       export TEMPLATECONF=${MAIN_DIR}/yocto/meta-yoctolearning/conf
   fi
+
   source poky/oe-init-build-env build
-  echo "MACHINE=\"${MACHINE}\"" >> ${MAIN_DIR}/yocto/build/conf/local.conf
+
+  if [[ $1 -eq 1 ]]
+  then
+    echo "MACHINE=\"${MACHINE}\"" >> ${MAIN_DIR}/yocto/build/conf/local.conf
+  fi
 }
 
 check_machine() {
@@ -58,7 +63,7 @@ do_prepare() {
   check_machine
   install_prerequisites
   clone_layers
-  source_bitbake
+  source_bitbake 1
 
 }
 
@@ -75,7 +80,7 @@ do_flash() {
 
 do_build() {
   cd yocto
-  source_bitbake
+  source_bitbake 0
   bitbake ${IMAGE_NAME}
   wic create ${IMAGE_TYPE} -e ${IMAGE_NAME} -o ./deploy/images/wic
 }
