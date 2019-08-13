@@ -7,7 +7,7 @@ clone_layers() {
 
   if [[ $AUTO -eq 1 ]]
   then
-    git clone -b master https://github.com/skorpyon1992/meta-yoctolearning.git
+    git clone -b $MACHINE https://github.com/skorpyon1992/meta-yoctolearning.git
   fi
 
   case "$MACHINE" in
