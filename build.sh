@@ -14,6 +14,8 @@ clone_layers() {
     raspberrypi|raspberrypi2|raspberrypi3)
       git clone -b warrior https://git.yoctoproject.org/git/meta-raspberrypi
       ;;
+    phyboard-regor-am335x-1)
+      git clone -b warrior https://git.phytec.de/git/meta-phytec
   esac
 }
 
@@ -89,7 +91,7 @@ SHIFTCOUNT=0
 IMAGE_NAME="core-image-minimal"
 IMAGE_TYPE="sdimage-raspberrypi"
 MACHINE="raspberrypi3"
-MACHINE_LIST=( "raspberrypi3" "raspberrypi2" "raspberrypi1" )
+MACHINE_LIST=( "raspberrypi3" "raspberrypi2" "raspberrypi1" "phyboard-regor-am335x-1")
 AUTO=0
 MAIN_DIR=$(pwd)
 
